@@ -1,0 +1,27 @@
+import Navbar from "./components/Navbar.jsx";
+import { AuthProvider } from "./context/AuthContext.jsx";
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Register from "./pages/Register.jsx";
+import AddRecipe from "./pages/AddRecipe.jsx";
+import RecipeDetail from "./pages/RecipeDetail.jsx";
+
+function App() {
+  
+
+  return (
+   <AuthProvider>
+    <Navbar />
+    <Routes>
+      <Route path="/" element={<Home />}></Route>
+      <Route path="/login" element={<Login />} ></Route>
+      <Route  path="/register" element={<Register />} ></Route>
+      <Route path="/add-recipe" element={<AddRecipe />}></Route>
+      <Route path="/recipes/:id" element={<RecipeDetail />}></Route>
+    </Routes>
+   </AuthProvider>
+  )
+}
+
+export default App
